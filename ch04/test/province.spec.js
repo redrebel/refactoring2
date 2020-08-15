@@ -2,6 +2,7 @@ const { Province, sampleProvinceData } = require("../Province");
 
 // var assert = require("assert");
 const { assert, expect } = require("chai");
+const { describe } = require("mocha");
 
 describe("province", function () {
   let asia;
@@ -38,6 +39,13 @@ describe("province", function () {
     expect(asia.shortfall).equal(-26);
     expect(asia.profit).equal(-10);
   });
+
+  // 수요 입력란이 비어 있다.
+  it("empty string demand", function () {
+    asia.demand = "";
+    expect(asia.shortfall).NaN;
+    expect(asia.profit).NaN;
+  });
 });
 
 describe("no producer", function () {
@@ -62,3 +70,17 @@ describe("no producer", function () {
     assert.equal(noProducers.profit, 0);
   });
 });
+
+// describe("string for producers", function () {
+//   // 생산자 수 필드에 문자열을 대입한다.
+//   it("", function () {
+//     const data = {
+//       name: "String producers",
+//       producers: "",
+//       demand: 30,
+//       price: 20,
+//     };
+//     const prov = new Province(data);
+//     expect(prov.shortfall).equal(0);
+//   });
+// });
