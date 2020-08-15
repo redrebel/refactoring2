@@ -1,7 +1,7 @@
 const { Province, sampleProvinceData } = require("../Province");
 
 // var assert = require("assert");
-const { assert } = require("chai");
+const { assert, expect } = require("chai");
 
 describe("province", function () {
   let asia;
@@ -16,5 +16,12 @@ describe("province", function () {
   // 초기 픽스처로부터 총수익이 제대로 계산되는지
   it("profit", function () {
     assert.equal(asia.profit, 230);
+  });
+
+  // change production
+  it("change production", function () {
+    asia.producers[0].production = 20;
+    expect(asia.shortfall).equal(-6);
+    expect(asia.profit).equal(292);
   });
 });
