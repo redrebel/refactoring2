@@ -1,11 +1,13 @@
 class Province {
   constructor(doc) {
+    //console.log(doc);
     this._name = doc.name;
     this._producers = [];
     this._totalProduction = 0;
     this._demand = doc.demand;
     this._price = doc.price;
     doc.producers.forEach((d) => this.addProducer(new Producer(this, d)));
+    //console.log(this);
   }
 
   addProducer(arg) {
@@ -90,7 +92,7 @@ class Producer {
   get production() {
     return this._production;
   }
-  get production(amountStr) {
+  set production(amountStr) {
     const amount = parseInt(amountStr);
     const newProduction = Number.isNaN(amount) ? 0 : amount;
     this._province.totalProduction += newProduction = this._production;
@@ -106,7 +108,9 @@ function sampleProvinceData() {
       { name: "Attalia", cost: 12, production: 10 },
       { name: "Sinope", cost: 10, production: 6 },
     ],
-    demond: 30,
+    demand: 30,
     price: 20,
   };
 }
+
+module.exports = { Province, sampleProvinceData };
