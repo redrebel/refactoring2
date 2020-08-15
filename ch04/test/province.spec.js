@@ -24,4 +24,41 @@ describe("province", function () {
     expect(asia.shortfall).equal(-6);
     expect(asia.profit).equal(292);
   });
+
+  // 수요가 없다.
+  it("zero demand", function () {
+    asia.demand = 0;
+    expect(asia.shortfall).equal(-25);
+    expect(asia.profit).equal(0);
+  });
+
+  // 수요가 마이너스다.
+  it("negative demand", function () {
+    asia.demand = -1;
+    expect(asia.shortfall).equal(-26);
+    expect(asia.profit).equal(-10);
+  });
+});
+
+describe("no producer", function () {
+  let noProducers;
+  beforeEach(function () {
+    const data = {
+      name: "No producers",
+      producers: [],
+      demand: 30,
+      price: 20,
+    };
+    noProducers = new Province(data);
+  });
+
+  // 생산 부족분을 제대로 계산하는지
+  it("shortfall", function () {
+    assert.equal(noProducers.shortfall, 30);
+  });
+
+  // 초기 픽스처로부터 총수익이 제대로 계산되는지
+  it("profit", function () {
+    assert.equal(noProducers.profit, 0);
+  });
 });
