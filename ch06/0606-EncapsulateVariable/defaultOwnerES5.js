@@ -3,7 +3,7 @@
 let defaultOwnerData = { firstName: "마틴", lastName: "파울러" };
 
 module.exports.defaultOwner = function defaultOwner() {
-  return defaultOwnerData;
+  return Object.assign({}, defaultOwnerData);
 };
 
 module.exports.setDefaultOwner = function setDefaultOwner(arg) {
