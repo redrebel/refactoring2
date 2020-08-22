@@ -1,3 +1,4 @@
+const Clock = require("../Clock");
 function printOwing(invoice) {
   let outstanding = 0;
 
