@@ -23,10 +23,10 @@ public class After {
 
     private static CommandLine parseCommandLine(String[] args){
         if(args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
-        CommandLine restult = new CommandLine();
-        restult.filename = args[args.length -1];
-        restult.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
-        return restult;
+        CommandLine result = new CommandLine();
+        result.filename = args[args.length -1];
+        result.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
+        return result;
     }
 
     private static long countOrders(CommandLine commandLine) throws java.io.IOException {
