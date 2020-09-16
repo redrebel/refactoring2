@@ -12,15 +12,20 @@ class Account {
     // 은행 이자 계산
     let result = 4.5;
     if (this._dayOverdrawn > 0)
-      result += this.type.overdraftCharge(this.daysOverdrawn);
+      result += new AccountType(this._isPremium).overdraftCharge(
+        this.daysOverdrawn
+      );
     return result;
   }
 }
 
 class AccountType {
+  constructor(isPremium) {
+    this._isPremium = isPremium;
+  }
   overdraftCharge(daysOverdrawn) {
     // 초과 인출 이자 계산
-    if (this.isPremium) {
+    if (this._isPremium) {
       const baseCharge = 10;
       if (daysOverdrawn <= 7) return baseCharge;
       else return baseCharge + (daysOverdrawn - 7) * 0.85;
