@@ -12,8 +12,7 @@ class Customer {
     this._discountRate += 0.03;
   }
   applyDiscount(amount) {
-    //return amount.subtract(amount.multiply(this._discountRate));
-    return amount - amount * this._discountRate;
+    return amount.subtract(amount.multiply(this._discountRate));
   }
 }
 
