@@ -1,0 +1,16 @@
+{
+  "name": "ch08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./**/test/*.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
