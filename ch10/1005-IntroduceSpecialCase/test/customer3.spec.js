@@ -7,7 +7,7 @@ const {
   client1: client1_before,
   client2: client2_before,
   client3: client3_before,
-} = require("../Customer2/before");
+} = require("../Customer3/before");
 
 const {
   Site: Site_after1,
@@ -15,7 +15,7 @@ const {
   client1: client1_after1,
   client2: client2_after1,
   client3: client3_after1,
-} = require("../Customer2/after1");
+} = require("../Customer3/after1");
 
 const {
   Site: Site_after2,
@@ -23,9 +23,9 @@ const {
   client1: client1_after2,
   client2: client2_after2,
   client3: client3_after2,
-} = require("../Customer2/after2");
+} = require("../Customer3/after2");
 
-describe("1005 Introduce Special Case - Customer2 - before", () => {
+describe("1005 Introduce Special Case - Customer3 - before", () => {
   const unknownCustomer = "미확인 고객";
   const knownCustomer = new Customer_before("고객", "정액제", {
     weeksDelinquentInLastYear: "10월",
@@ -64,7 +64,7 @@ describe("1005 Introduce Special Case - Customer2 - before", () => {
   });
 });
 
-describe("1005 Introduce Special Case - Customer2 - after1", () => {
+describe("1005 Introduce Special Case - Customer3 - after1", () => {
   const unknownCustomer = "미확인 고객";
   const knownCustomer = new Customer_after1("고객", "정액제", {
     weeksDelinquentInLastYear: "10월",
@@ -107,7 +107,7 @@ describe("1005 Introduce Special Case - Customer2 - after1", () => {
   });
 });
 
-describe("1005 Introduce Special Case - Customer2 - after2", () => {
+describe("1005 Introduce Special Case - Customer3 - after2", () => {
   const unknownCustomer = "미확인 고객";
   const knownCustomer = new Customer_after2("고객", "정액제", {
     weeksDelinquentInLastYear: "10월",
@@ -127,24 +127,24 @@ describe("1005 Introduce Special Case - Customer2 - after2", () => {
 
   it("Client2", () => {
     const site = new Site_after2(unknownCustomer);
-    const unknownPlan = client2_after2(site.customer);
+    const unknownPlan = client2_after2(site);
 
     expect(unknownPlan).equals("basic요금제");
 
     site.customer = knownCustomer;
-    const knownPlan = client2_after2(site.customer);
+    const knownPlan = client2_after2(site);
 
     expect(knownPlan).equals("정액제");
   });
 
   it("Client3", () => {
     const site = new Site_after2(unknownCustomer);
-    const unknownWeeksDelinquent = client3_after2(site.customer);
+    const unknownWeeksDelinquent = client3_after2(site);
 
     expect(unknownWeeksDelinquent).equals(0);
 
     site.customer = knownCustomer;
-    const knownWeeksDelinquent = client3_after2(site.customer);
+    const knownWeeksDelinquent = client3_after2(site);
 
     expect(knownWeeksDelinquent).equals("10월");
   });
