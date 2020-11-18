@@ -18,7 +18,7 @@ describe("1206 Replace Type Code with Subclasses - Employee1", () => {
 describe("1206 Replace Type Code with Subclasses - Employee2", () => {
   it("engineer - before", () => {
     const Employee = require("../Employee2/before");
-    const engineer = new Employee("jobs", "engineer");
+    const engineer = new Employee("jobs", "eNgineer");
     expect(engineer.toString()).equals("jobs (Engineer)");
   });
 

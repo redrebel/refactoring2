@@ -21,4 +21,14 @@ describe("1207 Remove Subclass", () => {
     const getNumberOfMales = require("../after3");
     expect(getNumberOfMales()).equals(2);
   });
+
+  it("after4", () => {
+    const getNumberOfMales = require("../after4");
+    expect(getNumberOfMales()).equals(2);
+  });
+
+  it("after5", () => {
+    const getNumberOfMales = require("../after5");
+    expect(getNumberOfMales()).equals(2);
+  });
 });

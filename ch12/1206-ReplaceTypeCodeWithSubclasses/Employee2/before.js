@@ -6,7 +6,7 @@ class Employee {
   }
 
   validateType(arg) {
-    if (!["engineer", "manager", "salesperson"].includes(arg))
+    if (!["eNgineer", "manager", "salesperson"].includes(arg))
       throw new Error(`${arg}라는 직원 유형은 없습니다.`);
   }
 
