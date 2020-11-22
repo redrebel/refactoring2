@@ -74,7 +74,7 @@ class NorwegianBlueParrotDelegate extends SpeciesDelegate {
 
   get plumage() {
     if (this._voltage > 100) return "그을렸다";
-    else return this._plumage || "예쁘다";
+    else return this._bird._plumage || "예쁘다";
   }
 
   get airSpeedVelocity() {
