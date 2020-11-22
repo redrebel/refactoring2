@@ -11,7 +11,7 @@ const show = {
 const date = new Date();
 const extra = { premiumFee: 20 };
 
-describe("1210 Replace Subclass with Delegate - before", () => {
+describe("1210 Replace Subclass with Delegate - Booking - before", () => {
   const { Booking, PremiumBooking } = require("../Booking/before");
   const booking = new Booking(show, date);
   const premiumBooking = new PremiumBooking(show, date, extra);
@@ -27,7 +27,7 @@ describe("1210 Replace Subclass with Delegate - before", () => {
   });
 });
 
-describe("1210 Replace Subclass with Delegate - after1", () => {
+describe("1210 Replace Subclass with Delegate - Booking - after1", () => {
   const { createBooking, createPremiumBooking } = require("../Booking/after1");
   const booking = createBooking(show, date);
   const premiumBooking = createPremiumBooking(show, date, extra);
@@ -43,7 +43,7 @@ describe("1210 Replace Subclass with Delegate - after1", () => {
   });
 });
 
-describe("1210 Replace Subclass with Delegate - after2", () => {
+describe("1210 Replace Subclass with Delegate - Booking - after2", () => {
   const { createBooking, createPremiumBooking } = require("../Booking/after2");
   const booking = createBooking(show, date);
   const premiumBooking = createPremiumBooking(show, date, extra);
